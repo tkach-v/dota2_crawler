@@ -94,6 +94,23 @@ class HeroSpider(scrapy.Spider):
                 turn_speed = re.search(pattern, mobility_sections[1]).group(1)
                 vision = re.search(pattern, mobility_sections[2]).group(1)
 
+
+        talent_rows = selector.css(".heropage_TalentContainer_m_wah .heropage_TalentRow_3BgAv").getall()[:4]
+        for i in range(len(talent_rows)):
+            row_selector = scrapy.Selector(text=talent_rows[i])
+            if i == 0:
+                left_25 = row_selector.css(".heropage_Left_1F43S::text").get()
+                right_25 = row_selector.css(".heropage_Right_vNURB::text").get()
+            elif i == 1:
+                left_20 = row_selector.css(".heropage_Left_1F43S::text").get()
+                right_20 = row_selector.css(".heropage_Right_vNURB::text").get()
+            elif i == 2:
+                left_15 = row_selector.css(".heropage_Left_1F43S::text").get()
+                right_15 = row_selector.css(".heropage_Right_vNURB::text").get()
+            else:
+                left_10 = row_selector.css(".heropage_Left_1F43S::text").get()
+                right_10 = row_selector.css(".heropage_Right_vNURB::text").get()
+
         item["primary_stat"] = primary_stat
         item["name"] = name
         item["description_short"] = description_short
@@ -119,6 +136,14 @@ class HeroSpider(scrapy.Spider):
         item["move_speed"] = move_speed
         item["turn_speed"] = turn_speed
         item["vision"] = vision
+        item["left_10"] = left_10
+        item["right_10"] = right_10
+        item["left_15"] = left_15
+        item["right_15"] = right_15
+        item["left_20"] = left_20
+        item["right_20"] = right_20
+        item["left_25"] = left_25
+        item["right_25"] = right_25
 
         yield item
 

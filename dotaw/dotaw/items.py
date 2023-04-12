@@ -7,7 +7,6 @@ import scrapy
 
 
 class DotaHeroItem(scrapy.Item):
-    # define the fields for your item here like:
     primary_stat = scrapy.Field()
     name = scrapy.Field()
     description_short = scrapy.Field()
@@ -42,4 +41,16 @@ class DotaHeroItem(scrapy.Item):
     turn_speed = scrapy.Field()
     vision = scrapy.Field()
 
+    # talent_tree
+    left_10 = scrapy.Field()
+    right_10 = scrapy.Field()
+    left_15 = scrapy.Field()
+    right_15 = scrapy.Field()
+    left_20 = scrapy.Field()
+    right_20 = scrapy.Field()
+    left_25 = scrapy.Field()
+    right_25 = scrapy.Field()
 
+
+class DotaAbilityItem(scrapy.Item):
+    pass
