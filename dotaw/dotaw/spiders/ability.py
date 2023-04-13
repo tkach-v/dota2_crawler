@@ -22,7 +22,7 @@ class AbilitySpider(scrapy.Spider):
             heroes = json.load(f1)
 
         urls = heroes[0]["links"]
-        for url in urls[:2]:
+        for url in urls[:5]:
             yield scrapy.Request(url=url + "?l=english", callback=self.parse)
 
     def parse(self, response):
@@ -46,6 +46,7 @@ class AbilitySpider(scrapy.Spider):
         abilities = []
         for i in range(len(abilities_buttons)):
             abilities_buttons[i].click()
+            time.sleep(0.5)
 
             html_clicked = self.driver.page_source
             sel = scrapy.Selector(text=html_clicked)
@@ -65,12 +66,20 @@ class AbilitySpider(scrapy.Spider):
 
             general_values = sel.css(".heropage_DetailsValues_25_Ud .heropage_ValueElement_3783T").getall()
             ab_generic = {}
-            for i in general_values:
-                sel = scrapy.Selector(text=i)
-                ab_generic[sel.css("::text").get()] = sel.css(".heropage_ValueValue_1gAlz::text").get(default='') or sel.css(".heropage_ValueValue_1gAlz span::text").get()
+            for j in general_values:
+                sel_general = scrapy.Selector(text=j)
+                ab_generic[sel_general.css("::text").get().lower().capitalize()] = sel_general.css(".heropage_ValueValue_1gAlz::text").get(default='') or sel.css(".heropage_ValueValue_1gAlz span::text").get()
 
+
+            specific_values = sel.css(".heropage_SpecificValues_1Sda4 .heropage_SpecialElement_-imZK").getall()
             ab_specific = {}
+            for j in specific_values:
+                sel_specific = scrapy.Selector(text=j)
+                ab_specific[sel_specific.css("::text").get().lower().capitalize()] = sel_specific.css(".heropage_SpecialValue_2QMsh::text").get()
 
+
+            cooldown = sel.css(".heropage_CooldownText_22XOo::text").get()
+            mana_cost = sel.css(".heropage_ManaText_Y2InY::text").get()
 
             ability["name"] = name
             ability["description"] = description
@@ -78,11 +87,8 @@ class AbilitySpider(scrapy.Spider):
             ability["type"] = ab_type
             ability["generic_details"] = ab_generic
             ability["specific_details"] = ab_specific
-            # ability["Ability"] = general_ability
-            # ability["Affects"] = general_affects
-            # ability["Damage Type"] = general_damage_type
-            # ability["Pierces Spell Immunity"] = general_pierces_spell_immunity
-            # ability["Dispellable"] = general_dispellable
+            ability["cooldown"] = cooldown
+            ability["mana_cost"] = mana_cost
 
 
             abilities.append(ability)
