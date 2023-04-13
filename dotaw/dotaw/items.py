@@ -53,4 +53,5 @@ class DotaHeroItem(scrapy.Item):
 
 
 class DotaAbilityItem(scrapy.Item):
-    pass
+    hero_name = scrapy.Field()
+    abilities = scrapy.Field()

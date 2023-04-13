@@ -94,7 +94,6 @@ class HeroSpider(scrapy.Spider):
                 turn_speed = re.search(pattern, mobility_sections[1]).group(1)
                 vision = re.search(pattern, mobility_sections[2]).group(1)
 
-
         talent_rows = selector.css(".heropage_TalentContainer_m_wah .heropage_TalentRow_3BgAv").getall()[:4]
         for i in range(len(talent_rows)):
             row_selector = scrapy.Selector(text=talent_rows[i])

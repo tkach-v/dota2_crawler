@@ -1,72 +1,156 @@
 [
   {
-    "primary_stat": "Strength",
-    "name": "Abaddon",
-    "description_short": "Shields his allies or himself from attacks",
-    "description_long": "Able to transform enemy attacks into self-healing, Abaddon can survive almost any assault. Shielding allies and launching his double-edged coil at a friend or foe, he is always ready to ride into the thick of battle.",
-    "attack_type": "Melee",
-    "complexity": 1,
-    "image_url_small": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/abaddon.png",
-    "image_url_large": "https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/abaddon.png",
-    "health": "640",
-    "mana": "291",
-    "strength": "22",
-    "strength_increase": "2.6",
-    "agility": "23",
-    "agility_increase": "1.5",
-    "intelligence": "18",
-    "intelligence_increase": "2.0",
-    "damage": "50-60",
-    "attack_delay": "1.5",
-    "attack_range": "150",
-    "flight_speed": "900 ",
-    "armor": "2.8",
-    "magic_resistance": "25%",
-    "move_speed": "325",
-    "turn_speed": "0.6",
-    "vision": "1800 / 800",
-    "left_10": "+8 Strength",
-    "right_10": "-15% Curse of Avernus Movement Slow",
-    "left_15": "+50 Mist Coil Heal/Damage",
-    "right_15": "+65 Damage",
-    "left_20": "-8s Borrowed Time Cooldown",
-    "right_20": "+100 Aphotic Shield Health",
-    "left_25": "400 AoE Mist Coil",
-    "right_25": "-1 Curse of Avernus Attacks Required"
+    "hero_name": "Abaddon",
+    "abilities": [
+      {
+        "name": "Mist Coil",
+        "description": "Abaddon releases a coil of deathly mist that can damage an enemy unit or heal a friendly unit at the cost of some of Abaddon's health.",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_death_coil.png",
+        "type": null,
+        "generic_details": {
+          "Ability:": "Unit Target",
+          "Affects:": "Heroes",
+          "Damage Type:": "Magical",
+          "Pierces Spell Immunity:": "Allies Yes Enemies No"
+        },
+        "specific_details": {}
+      },
+      {
+        "name": "Aphotic Shield",
+        "description": "Summons dark energies around an ally unit, creating a shield that absorbs a set amount of damage before expiring. When the shield is destroyed it will burst and deal damage equal to the amount it could absorb to an area around it. Removes certain types of negative buffs and stuns on cast.<br><br>DISPEL TYPE: Strong Dispel",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_aphotic_shield.png",
+        "type": null,
+        "generic_details": {
+          "Ability:": "Unit Target",
+          "Affects:": "Allied Units",
+          "Damage Type:": "Magical",
+          "Pierces Spell Immunity:": "No",
+          "Dispellable:": "Yes"
+        },
+        "specific_details": {}
+      },
+      {
+        "name": "Curse of Avernus",
+        "description": "Abaddon strikes an enemy, slowing the target's movement speed. If the target gets hit 4.0 times, they become affected by a chilling curse causing them to be silenced and slowed, and all attacks against them gain an attack speed boost.",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_frostmourne.png",
+        "type": null,
+        "generic_details": {
+          "Ability:": "Passive",
+          "Pierces Spell Immunity:": "No",
+          "Dispellable:": "Yes"
+        },
+        "specific_details": {}
+      },
+      {
+        "name": "Borrowed Time",
+        "description": "When activated, all damage dealt to you will heal instead of harm. Most negative buffs will also be removed. If the ability is not on cooldown, it will automatically activate if your health falls below 400.0.<br><br>DISPEL TYPE: Strong Dispel",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_borrowed_time.png",
+        "type": null,
+        "generic_details": {
+          "Ability:": "No Target",
+          "Dispellable:": "No"
+        },
+        "specific_details": {}
+      },
+      {
+        "name": "Curse of Avernus",
+        "description": "Causes Mist Coil to deal Abaddon's attack damage on impact. Increases Curse of Avernus base slow.",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_frostmourne.png",
+        "type": "Shard Ability Upgrade",
+        "generic_details": {
+          "Ability:": "Passive",
+          "Pierces Spell Immunity:": "No",
+          "Dispellable:": "Yes"
+        },
+        "specific_details": {}
+      },
+      {
+        "name": "Borrowed Time",
+        "description": "Increases duration. While Borrowed Time is active, anytime an ally takes more than 525.0 damage while within 1200.0 range of Abaddon, an individual Mist Coil will automatically fire towards that ally.",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abaddon_borrowed_time.png",
+        "type": "Scepter Ability Upgrade",
+        "generic_details": {
+          "Ability:": "No Target",
+          "Dispellable:": "No"
+        },
+        "specific_details": {}
+      }
+    ]
   },
   {
-    "primary_stat": "Strength",
-    "name": "Alchemist",
-    "description_short": "Earns extra gold from unit kills and bounty runes",
-    "description_long": "Synthesizing extra resources from each and every kill, Alchemist has no trouble gathering the tools needed to destroy his foes. Ambushing enemies with corrosive acid and a host of unstable chemicals, he battles to ensure his greedy escapades can remain uninterrupted.",
-    "attack_type": "Melee",
-    "complexity": 1,
-    "image_url_small": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png",
-    "image_url_large": "https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/alchemist.png",
-    "health": "660",
-    "mana": "375",
-    "strength": "23",
-    "strength_increase": "2.7",
-    "agility": "22",
-    "agility_increase": "1.5",
-    "intelligence": "25",
-    "intelligence_increase": "1.8",
-    "damage": "50-56",
-    "attack_delay": "1.7",
-    "attack_range": "150",
-    "flight_speed": "900 ",
-    "armor": "2.7",
-    "magic_resistance": "25%",
-    "move_speed": "305",
-    "turn_speed": "0.6",
-    "vision": "1800 / 800",
-    "left_10": "+125 Unstable Concoction Radius",
-    "right_10": "+1 Acid Spray Armor Reduction",
-    "left_15": "+1.5 Damage per Greevil's Greed stack",
-    "right_15": "Acid Spray grants armor to allies",
-    "left_20": "+400 Unstable Concoction Max Damage",
-    "right_20": "-0.1s Chemical Rage Base Attack Time",
-    "left_25": "+50 Chemical Rage Regeneration",
-    "right_25": "+50 Chemical Rage Movement Speed"
+    "hero_name": "Alchemist",
+    "abilities": [
+      {
+        "name": "Acid Spray",
+        "description": "Sprays high-pressure acid across a target area. Enemy units who step across the contaminated terrain take damage per second and have their armor reduced.",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_acid_spray.png",
+        "type": null,
+        "generic_details": {
+          "Ability:": "Point Target",
+          "Damage Type:": "Physical",
+          "Pierces Spell Immunity:": "No"
+        },
+        "specific_details": {}
+      },
+      {
+        "name": "Unstable Concoction",
+        "description": "Alchemist brews up an unstable concoction that he can throw at an enemy hero, to stun and deal damage in an area around the explosion. The longer the concoction brews, the more damage it deals and the longer the stun. Alchemist is faster while charging the concoction. After 5.0 seconds, the brew reaches its maximum damage and stun time. However, after 5.5 seconds, the concoction will explode on Alchemist himself if not thrown.",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_unstable_concoction.png",
+        "type": null,
+        "generic_details": {
+          "Ability:": "No Target",
+          "Damage Type:": "Physical",
+          "Pierces Spell Immunity:": "No",
+          "Dispellable:": "Only Strong Dispels"
+        },
+        "specific_details": {}
+      },
+      {
+        "name": "Greevil's Greed",
+        "description": "Alchemist synthesizes additional gold from his enemies and bounty runes. With each kill, Alchemist earns base bonus gold and extra bonus gold. If Alchemist kills another unit which yields gold within the next 36.0 seconds, an additional instance of Extra Bonus Gold is added to the total. Additionally, causes bounty runes to yield more gold.",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_goblins_greed.png",
+        "type": null,
+        "generic_details": {
+          "Ability:": "Passive",
+          "Affects:": "Allied Heroes"
+        },
+        "specific_details": {}
+      },
+      {
+        "name": "Chemical Rage",
+        "description": "Alchemist causes his Ogre to enter a chemically induced rage, reducing base attack cooldown and increasing movement speed and health regeneration.<br><br>DISPEL TYPE: Basic Dispel",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png",
+        "type": null,
+        "generic_details": {
+          "Ability:": "No Target",
+          "Dispellable:": "No"
+        },
+        "specific_details": {}
+      },
+      {
+        "name": "Berserk Potion",
+        "description": "Alchemist throws a potion at an ally, applying a basic dispel and giving them attack speed, movement speed and HP regen.<br><br>DISPEL TYPE: Basic Dispel",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_berserk_potion.png",
+        "type": "Shard Grants New Ability",
+        "generic_details": {
+          "Ability:": "Unit Target",
+          "Affects:": "Allied Units",
+          "Pierces Spell Immunity:": "Yes",
+          "Dispellable:": "Yes"
+        },
+        "specific_details": {}
+      },
+      {
+        "name": "Chemical Rage",
+        "description": "Alchemist melts down Aghanim's Scepter to grant an allied hero all Aghanim's Scepter upgrades. Alchemist will gain bonus damage and spell amplification for each gifted Scepter.",
+        "image_url": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png",
+        "type": "Scepter Ability Upgrade",
+        "generic_details": {
+          "Ability:": "No Target",
+          "Dispellable:": "No"
+        },
+        "specific_details": {}
+      }
+    ]
   }
 ]
