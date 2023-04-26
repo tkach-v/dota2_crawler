@@ -23,14 +23,15 @@ class HeroSpider(scrapy.Spider):
             heroes = json.load(f1)
 
         urls = heroes[0]["links"]
-        for url in urls[:2]:
+        urls = sorted(urls)
+        for url in urls:
             yield scrapy.Request(url=url + "?l=english", callback=self.parse)
 
     def parse(self, response):
         self.driver.get(response.url)
 
         # Чекаємо, поки не знайдеться елемент <footer>
-        wait = WebDriverWait(self.driver, 100)
+        wait = WebDriverWait(self.driver, 1000)
         footer = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".rootfooter_RootFooter_H4Gkw")))
         time.sleep(5)
         html = self.driver.page_source
@@ -39,8 +40,8 @@ class HeroSpider(scrapy.Spider):
 
         item = DotaHeroItem()
 
-        primary_stat = selector.css(".heropage_PrimaryStat_3HGWJ::text").get()
         name = selector.css(".heropage_HeroSummary_2jP25 .heropage_HeroName_2IcIu::text").get()
+        primary_stat = selector.css(".heropage_PrimaryStat_3HGWJ::text").get()
         description_short = selector.css(".heropage_HeroOneLiner_2r7td::text").get()
         description_long_div = selector.css(".heropage_SummaryContainer_2z0_h .heropage_Lore_1FdIS")
         description_long_text = ''.join(description_long_div.xpath('.//text()').getall()).replace('Read Full History',
@@ -80,7 +81,10 @@ class HeroSpider(scrapy.Spider):
                 damage = re.search(pattern, attack_sections[0]).group(1)
                 attack_delay = re.search(pattern, attack_sections[1]).group(1)
                 attack_range = re.search(pattern, attack_sections[2]).group(1)
-                flight_speed = re.search(pattern, attack_sections[3]).group(1)
+                try:
+                    flight_speed = re.search(pattern, attack_sections[3]).group(1)
+                except:
+                    flight_speed = 900
 
             elif i == 1:
                 defence_sections = sec_selector.css(".heropage_ValueElement_3783T").getall()
@@ -110,8 +114,8 @@ class HeroSpider(scrapy.Spider):
                 left_10 = row_selector.css(".heropage_Left_1F43S::text").get()
                 right_10 = row_selector.css(".heropage_Right_vNURB::text").get()
 
-        item["primary_stat"] = primary_stat
         item["name"] = name
+        item["primary_stat"] = primary_stat
         item["description_short"] = description_short
         item["description_long"] = description_long_text
         item["attack_type"] = attack_type
