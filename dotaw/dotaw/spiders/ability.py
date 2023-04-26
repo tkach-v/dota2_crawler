@@ -22,7 +22,7 @@ class AbilitySpider(scrapy.Spider):
             heroes = json.load(f1)
 
         urls = heroes[0]["links"]
-        for url in urls[:5]:
+        for url in urls:
             yield scrapy.Request(url=url + "?l=english", callback=self.parse)
 
     def parse(self, response):
