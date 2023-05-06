@@ -55,3 +55,8 @@ class DotaHeroItem(scrapy.Item):
 class DotaAbilityItem(scrapy.Item):
     hero_name = scrapy.Field()
     abilities = scrapy.Field()
+
+
+class DotaCosmeticItem(scrapy.Item):
+    hero_name = scrapy.Field()
+    cosmetics = scrapy.Field()

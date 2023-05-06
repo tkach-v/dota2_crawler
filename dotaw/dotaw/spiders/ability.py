@@ -18,7 +18,7 @@ class AbilitySpider(scrapy.Spider):
         self.driver = Chrome(executable_path=driver_path)
 
     def start_requests(self):
-        with open(r"C:\my_python\tasks\parsers\dota2\dotaw\dotaw\spiders\heroes_links.json", 'r') as f1:
+        with open(r"C:\my_python\tasks\parsers\dota2\dotaw\dotaw\spiders\heroes_links_dota2.json", 'r') as f1:
             heroes = json.load(f1)
 
         urls = heroes[0]["links"]
