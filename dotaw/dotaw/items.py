@@ -60,3 +60,19 @@ class DotaAbilityItem(scrapy.Item):
 class DotaCosmeticItem(scrapy.Item):
     hero_name = scrapy.Field()
     cosmetics = scrapy.Field()
+
+
+class DotaItemItem(scrapy.Item):
+    name = scrapy.Field()
+    image_url = scrapy.Field()
+    description = scrapy.Field()
+    lore_description = scrapy.Field()
+    type_global = scrapy.Field()  # neutral or basics
+    type_specific = scrapy.Field()
+    cost = scrapy.Field()
+    sell_value = scrapy.Field()
+    bonus = scrapy.Field()
+    shareable = scrapy.Field()
+    disassemble = scrapy.Field()
+    availability = scrapy.Field()
+    recipe = scrapy.Field()
