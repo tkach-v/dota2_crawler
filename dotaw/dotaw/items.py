@@ -76,3 +76,8 @@ class DotaItemItem(scrapy.Item):
     disassemble = scrapy.Field()
     availability = scrapy.Field()
     recipe = scrapy.Field()
+
+
+class DotaItemAbilityItem(scrapy.Item):
+    item_name = scrapy.Field()
+    abilities = scrapy.Field()
